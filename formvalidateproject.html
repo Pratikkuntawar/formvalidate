@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validformproject</title>
+    <style>
+        body{
+            padding:50px 100px;
+            background-color: aqua;
+            display:flex; /*width decresres*/
+            justify-content: center;/*horizontally center mdhe aala*/
+            align-items: center;/* vertically center mdhe aala*/
+            height: 100vh;/*mhnje vertically jikti height asel titkya center aan*/
+        }
+       #form-container{
+        text-align:center;
+        padding:100px;
+        background-color: antiquewhite;
+       }
+       h2{
+           margin: 0px 0px 10px 0px;
+           font-weight: bold;
+           font-size: 20px;
+       }
+       input{
+        padding: 10px
+        margin:10px 0px;
+        width:100px;
+       }
+       #user{
+        padding: 10px;
+        margin: 5px;
+        width:100px;
+        font-weight: bold;
+        padding:15px 50px;
+       border:2px solid black;
+       }
+       #pass{
+        padding: 10px;
+        margin: 5px;
+        width:100px;
+        font-weight: bold;
+        padding:15px 50px;
+        border:2px solid black;
+       }
+       #submit{
+        width: 50px;
+        background-color: blue;
+        padding:10px 50px;
+        color: whitesmoke;
+        text-align: center;
+       }
+       .Error{
+text-align: center;
+color:brown;
+margin: 0px;
+       }
+       p{
+        font-size: 15px;
+       }
+    </style>
+</head>
+<body>
+   <div id="form-container">
+    <h2>Login Form</h2>
+     <form action="" onsubmit="return formvalidate()"> <!--return ya sathi because return true asl ki submit hott nhi t nhi hot -->
+        <input type="text" placeholder="User-Name" id="user">
+        <p id="userError" class="Error">Please enter username of atleast 8 characters</p>
+        <br>
+        <input type="password" placeholder="password" id="pass">
+        <p id="passError" class="Error">Please enter password of atleast 8 characters</p>
+        <br>
+        <input type="submit" id="submit">
+        <br>
+    </form> 
+   </div> 
+   <script>
+    let username=document.getElementById("user");
+    let password=document.getElementById("pass");
+    let flag=1;
+    function formvalidate(){
+    if(username.value==""){
+        document.getElementById("userError").innerHTML="User-Name is empty";
+        flag=0;
+    }
+   else if(username.value.length<8){
+        document.getElementById("userError").innerHTML="user-name required atleast 8 characters";
+        flag=0;
+    }
+    else{
+        document.getElementById("userError").innerHTML="";
+        flag=1;
+    }
+    if(password.value==""){
+        document.getElementById("passError").innerHTML="password is empty";
+        flag=0;
+    }
+    else if(password.value.length<8){
+        document.getElementById("passError").innerHTML="password required minimum 8 characters";
+        flag=0;
+    }
+    else{
+        document.getElementById("passError").innerHTML="";
+        flag=1;
+    }
+    if(flag==1){
+return true;
+    }
+    else{
+    return false;
+    }
+    }
+   </script>
+</body>
+</html>
